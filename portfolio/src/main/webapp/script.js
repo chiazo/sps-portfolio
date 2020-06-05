@@ -12,45 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
-function addRandomFact() {
-  const facts =
-      ['I speak four languages', 'I used to live in a castle!', `I've spent over 50 days in the woods`, 'One of my favorite tv shows is La Casa de Papel'];
 
-  // Pick a random greeting.
-  const fact = facts[Math.floor(Math.random() * facts.length)];
-
-  // Add it to the page.
-  const factContainer = document.getElementById('fact-container');
-  factContainer.innerText = fact;
-}
-
+// shows certain projects based on selected tag + button
 function filterProjects(tag) {
 
-    let allProjs = document.getElementsByClassName("project-desc");
+    const allProjs = document.getElementsByClassName("proj");
 
     switch (tag) {
-        case all:
-        break;
-        
-        case lang:
-        break;
+        case "all":
+            for (let el of allProjs) {
+                if (el.classList.contains("hide")) {
+                    el.classList.remove("hide")
 
-        case js:
-        break;
+                }
+            }
+            break;
 
-        case ts:
-        break;
-        
-        case react:
-        break;
+        default:
+            for (let el of allProjs) {
+                if (el.className.indexOf(tag) !== -1) {
+                    if (el.classList.contains("hide")) {
+                        el.classList.remove("hide")
+                    }
+                } else {
+                    el.classList.add("hide")
+                }
+            }
+            break;
 
-        case jekyll:
-        break;
 
-        case sass:
-        break;
-    } 
+    }
 }

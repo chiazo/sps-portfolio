@@ -1,15 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Raleway:wght@500&display=swap');
+
+html {
+    border: 10px solid rgba(154, 212, 87, 0.993);
+}
+
 body {
-    /* background-color: rgb(102, 194, 143); */
-    /* font-family: 'Raleway', sans-serif; */
     font-family: 'Cabin', sans-serif;
     line-height: 1.5;
+}
+
+.hide {
+    display: none;
 }
 
 #content {
   margin-left: auto;
   margin-right: auto;
-  width: 700px;
+  max-width: 700px;
+  width: 90%;
   padding: 2rem;
 }
 
@@ -35,13 +43,17 @@ body {
     width: 100%;
 }
 
+.proj {
+    /* display: none; */
+}
+
 .project-desc p {
     border: 1px solid black;
     padding: 10px;
 }
 
-.project-desc div {
-  
+.p-button {
+    background-color: none;
 }
 
 #photography, .project-desc {
