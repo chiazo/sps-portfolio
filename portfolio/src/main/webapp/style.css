@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Raleway:wght@500&display=swap');
+body {
+    /* background-color: rgb(102, 194, 143); */
+    /* font-family: 'Raleway', sans-serif; */
+    font-family: 'Cabin', sans-serif;
+    line-height: 1.5;
+}
+
 #content {
   margin-left: auto;
   margin-right: auto;
-  width: 650px;
+  width: 700px;
   padding: 2rem;
+}
+
+#proj-bttns {
+    margin: 2rem;
+    text-align: center;
 }
 
 #greeting-container {
@@ -12,6 +25,7 @@
 .photos {
     width: calc(50% - 2rem);
     padding: .2rem;
+    text-align: center;
 }
 
 .photos img {
@@ -21,7 +35,16 @@
     width: 100%;
 }
 
-#photography {
+.project-desc p {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.project-desc div {
+  
+}
+
+#photography, .project-desc {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
