@@ -1,9 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Raleway:wght@500&display=swap');
+body {
+    /* background-color: rgb(102, 194, 143); */
+    /* font-family: 'Raleway', sans-serif; */
+    font-family: 'Cabin', sans-serif;
+    line-height: 1.5;
+}
+
 #content {
   margin-left: auto;
   margin-right: auto;
-  width: 650px;
+  width: 700px;
+  padding: 2rem;
+}
+
+#proj-bttns {
+    margin: 2rem;
+    text-align: center;
 }
 
 #greeting-container {
   margin-top: 20px;
+}
+
+.photos {
+    width: calc(50% - 2rem);
+    padding: .2rem;
+    text-align: center;
+}
+
+.photos img {
+    display: block;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.project-desc p {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.project-desc div {
+  
+}
+
+#photography, .project-desc {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+
+i img {
+    width: 35px;
+    height: 35px;
+    line-height: 1;
+    padding: 10px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.links {
+    display: block;
+    margin-top: 2rem;
+}
+
+.links ul {
+    display: table;
+    margin: 0 auto;
+    padding-inline-start: 0px;
+}
+
+.links li {
+    float: left;
+    margin: 0 5px;
 }

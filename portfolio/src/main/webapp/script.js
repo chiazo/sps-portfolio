@@ -15,14 +15,42 @@
 /**
  * Adds a random greeting to the page.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+function addRandomFact() {
+  const facts =
+      ['I speak four languages', 'I used to live in a castle!', `I've spent over 50 days in the woods`, 'One of my favorite tv shows is La Casa de Papel'];
 
   // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  const fact = facts[Math.floor(Math.random() * facts.length)];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const factContainer = document.getElementById('fact-container');
+  factContainer.innerText = fact;
+}
+
+function filterProjects(tag) {
+
+    let allProjs = document.getElementsByClassName("project-desc");
+
+    switch (tag) {
+        case all:
+        break;
+        
+        case lang:
+        break;
+
+        case js:
+        break;
+
+        case ts:
+        break;
+        
+        case react:
+        break;
+
+        case jekyll:
+        break;
+
+        case sass:
+        break;
+    } 
 }
