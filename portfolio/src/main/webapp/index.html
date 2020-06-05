@@ -9,7 +9,7 @@
   <body>
     <div id="content">
       <div id="masthead">
-          <h1>Hi! I'm Chiazo</h1>
+          <h1>Hi, I'm Chiazo!</h1>
           <h4>Language enthusiast. Musician. Coder. Youtube Binger.<h4>
           <div id="nav"></div>
       </div>
@@ -19,11 +19,37 @@
       </div>
       <div id="projects">
           <h2>My (Presentable) Code: </h2>
-          <div id="word-adder" class="lang js">Word Adder</div>
-          <div id="my-planner" class="lang react js">My Planner</div>
-          <div id="read-learn" class="lang ts">Read Learn</div>
-          <div id="syndrome" class="css js sass">Syndrome</div>
-          <div id="personal-site" class="css js jekyll">chiazo.github.io</div>
+          <div id="proj-bttns">
+              <button class="p-button" onclick="filterProjects('all')">All</button>
+              <button class="p-button" onclick="filterProjects('lang')">Human Languages</button>
+              <button class="p-button" onclick="filterProjects('js')">Javascript</button>
+              <button class="p-button" onclick="filterProjects('react')">React</button>
+              <button class="p-button" onclick="filterProjects('ts')">TypeScript</button>
+              <button class="p-button" onclick="filterProjects('sass')">Sass</button>
+              <button class="p-button" onclick="filterProjects('jekyll')">Jekyll</button>
+          </div>
+          <div id="project-desc">
+              <div id="word-adder" class="lang js">
+                  <a src="https://github.com/chiazo/word-adder">Word Adder</a>
+                  <div><p>A program to update foreign vocab lists hosted on google sheets with definitions & example sentences</p></div>
+              </div>
+          <div id="my-planner" class="lang react js">
+              <a src="https://chiazo.github.io/my-planner/">My Planner</a>
+              <div><p>A web app that creates a daily schedule based on inputed tasks and their estimated time for completion.</p></div>
+          </div>
+          <div id="read-learn" class="lang ts">
+              <a src="https://chiazo.github.io/read-learn">Read Learn</a>
+              <div><p>A web app that takes in a text in another language, allowing the user to click words they don't know. Outputs a list of words to study later!</p></div>
+          </div>
+          <div id="syndrome" class="css js sass">
+              <a src="https://chiazo.github.io/syndrome/">Syndrome</a>
+              <div><p>A CSS framework built using Sass. Syndrome is a toolkit featuring all of my favorite CSS styles in one place.</p></div>
+          </div>
+          <div id="personal-site" class="css js jekyll">
+              <a src="https://chiazo.github.io/">chiazo.github.io</a>
+              <div><p>My personal website!</p></div>
+          </div>
+          </div>
       </div>
       <div id="photography">
           <h2>My Photography</h2>

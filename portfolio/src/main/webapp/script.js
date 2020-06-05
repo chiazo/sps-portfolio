@@ -26,3 +26,7 @@ function addRandomFact() {
   const factContainer = document.getElementById('fact-container');
   factContainer.innerText = fact;
 }
+
+function filterProjects(class) {
+    switch (class) 
+}
