@@ -9,6 +9,30 @@
   margin-top: 20px;
 }
 
-.hk-photo {
-    max-width: 50%;
+.photos {
+    width: calc(50% - 2rem);
+    padding: .2rem;
+}
+
+.photos img {
+    display: block;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#photography {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+
+i img {
+    font-size: 21px;
+    line-height: 1;
+}
+
+li {
+    list-style-type: none;
 }

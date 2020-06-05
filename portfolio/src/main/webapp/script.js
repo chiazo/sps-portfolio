@@ -27,6 +27,30 @@ function addRandomFact() {
   factContainer.innerText = fact;
 }
 
-function filterProjects(class) {
-    switch (class) 
+function filterProjects(tag) {
+
+    let allProjs = document.getElementsByClassName("project-desc");
+
+    switch (tag) {
+        case all:
+        break;
+        
+        case lang:
+        break;
+
+        case js:
+        break;
+
+        case ts:
+        break;
+        
+        case react:
+        break;
+
+        case jekyll:
+        break;
+
+        case sass:
+        break;
+    } 
 }
