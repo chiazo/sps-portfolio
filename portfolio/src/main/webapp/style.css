@@ -29,10 +29,28 @@
 }
 
 i img {
-    font-size: 21px;
+    width: 35px;
+    height: 35px;
     line-height: 1;
+    padding: 10px;
 }
 
 li {
     list-style-type: none;
+}
+
+.links {
+    display: block;
+    margin-top: 2rem;
+}
+
+.links ul {
+    display: table;
+    margin: 0 auto;
+    padding-inline-start: 0px;
+}
+
+.links li {
+    float: left;
+    margin: 0 5px;
 }
