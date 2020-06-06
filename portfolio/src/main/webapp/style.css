@@ -1,12 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Raleway:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
 
 html {
-    border: 10px solid rgba(154, 212, 87, 0.993);
+    background-color:  rgba(0, 0, 0, 0.993);
+    color: #eee
+}
+
+.tagline {
+    font-size: 3.2rem; 
 }
 
 body {
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Inconsolata', monospace;
     line-height: 1.5;
+}
+
+#bio {
+    background-color: #8a3633;
+    padding: .2rem 1rem;
+}
+
+.p-button {
+    line-height: 2;
+    margin: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: .5rem;
+    border-radius: .2rem;
+    white-space: nowrap;
+    background: #000000;
+    color: #eee;
+    border: 1px dashed #8a3633;
+    min-width: 100px;
 }
 
 .hide {
@@ -31,9 +55,16 @@ body {
 }
 
 .photos {
-    width: calc(50% - 2rem);
+    width: 49%;
     padding: .2rem;
     text-align: center;
+}
+
+.project-desc a {
+    background: white;
+    color: black;
+    padding: 1rem;
+    box-shadow: 5px 5px 5px rgb(52, 52, 52);
 }
 
 .photos img {
@@ -43,17 +74,24 @@ body {
     width: 100%;
 }
 
-.proj {
-    /* display: none; */
-}
-
 .project-desc p {
-    border: 1px solid black;
-    padding: 10px;
+    border: 1px solid #eee;
+    margin: 10px;
+    padding: 5px;
 }
 
-.p-button {
-    background-color: none;
+#masthead h1, h2, h4, h5 {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 80%, #8a3633 20%);
+}
+
+
+
+.project-desc div {
+    background: #8a3633;
+    margin: 1rem;
+    padding: .5rem;
+    min-width: 96%;
+    max-width: 100%;
 }
 
 #photography, .project-desc {
@@ -62,6 +100,8 @@ body {
     flex-direction: row;
 
 }
+
+
 
 i img {
     width: 35px;
@@ -83,6 +123,11 @@ li {
     display: table;
     margin: 0 auto;
     padding-inline-start: 0px;
+}
+
+.links li:nth-child(-n+2) {
+    -webkit-filter: invert(1);
+    filter: invert(1);
 }
 
 .links li {
