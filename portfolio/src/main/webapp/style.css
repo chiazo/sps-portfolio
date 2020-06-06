@@ -4,10 +4,14 @@
 
 *, ::before, ::after, html {
     box-sizing: border-box;
+    --hover-color: #dd7a77;
+    --highlight-color: #8a3633;
+    --bg-color: rgba(0, 0, 0, 0.993);
+    --font-color: #eee;
 }
 
 html {
-    background-color:  rgba(0, 0, 0, 0.993);
+    background-color:  var(--bg-color);
     color: #eee
 }
 
@@ -54,7 +58,7 @@ li {
 .nav a, .nav li {
     font-size: 1.1rem;
     padding: .2rem;
-    color: #eee;
+    color: var(--font-color);
     line-height: 1.2;
     text-align: center;
     border-radius: 5px;
@@ -90,7 +94,7 @@ li {
         z-index: 5;
         top: 10rem;
         left: 83%;
-        background-color: rgb(0, 0, 0);
+        background-color:var(--bg-color);
         border: none;
         overflow: hidden;
         padding: 1rem;
@@ -101,7 +105,7 @@ li {
 }
 
 .nav a:hover {
-    color: #dd7a77;
+    color: var(--hover-color);
 }
 
 /* masthead */
@@ -123,13 +127,13 @@ li {
 
 
 #bio {
-    background-color: #8a3633;
+    background-color: var(--highlight-color);
     padding: .2rem 1rem;
     box-shadow: 3px 3px 5px rgb(58, 53, 53);
 }
 
 #masthead h1, h2, h4, h5 {
-    background: linear-gradient(180deg, rgba(255,255,255,0) 85%, #8a3633 15%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 85%, var(--highlight-color) 15%);
     line-height: 1.2;
 }
 
@@ -149,8 +153,8 @@ h1 {
     border-radius: .2rem;
     white-space: nowrap;
     background: none;
-    color: #eee;
-    border: 1px dashed #8a3633;
+    color: var(--font-color);
+    border: 1px dashed  var(--highlight-color);
     box-shadow: 1px 1px 2px rgba(155, 93, 43, 0.897);
     min-width: 50px;
 }
@@ -203,7 +207,7 @@ h1 {
 
 .project-desc a {
     background: white;
-    color: black;
+    color: var(--bg-color);
     padding: 1rem;
     z-index: 1;
     box-shadow: 5px 5px 5px rgb(52, 52, 52);
@@ -227,7 +231,7 @@ div span {
 
 
 .project-desc > div {
-    border: 7px double #8a3633;
+    border: 7px double  var(--highlight-color);
     margin-bottom: 2rem;
     z-index: -1;
     min-width: 100%;
