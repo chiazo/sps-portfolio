@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
 
+
 /* html + body */
 
 *, ::before, ::after, html {
     box-sizing: border-box;
-    --hover-color: #dd7a77;
-    --highlight-color: #8a3633;
-    --bg-color: rgba(0, 0, 0, 0.993);
+    --hover-color: #77dd7c;
+    --highlight-color: #72863c;
+    --bg-color: #252525;
     --font-color: #eee;
 }
 
@@ -36,7 +37,7 @@ li {
 
 .links {
     display: block;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .links ul, .nav ul {
@@ -82,8 +83,12 @@ li {
     left: 0;
     z-index: 4;
     width: 100%;
-    background: rgb(0, 0, 0);
+    background: var(--bg-color);
     border-bottom: 1px solid white;
+}
+
+#return a {
+    color: var(--hover-color);
 }
 
 
@@ -130,11 +135,13 @@ li {
     background-color: var(--highlight-color);
     padding: .2rem 1rem;
     box-shadow: 3px 3px 5px rgb(58, 53, 53);
+    margin-bottom: 2rem;
 }
 
 #masthead h1, h2, h4, h5 {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 85%, var(--highlight-color) 15%);
+    /* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 85%, var(--highlight-color) 15%); */
     line-height: 1.2;
+    color: var(--hover-color);
 }
 
 h1 {
@@ -164,7 +171,7 @@ h1 {
 }
 
 .active {
-    background:  rgb(135, 47, 47);;
+    background: var(--highlight-color);
     color: #eee;
     border: none;
     box-shadow: none;
@@ -187,7 +194,7 @@ h1 {
 
 .p-button:hover {
     box-shadow: none;
-    background: rgb(135, 47, 47);
+    background: var(--highlight-color);
 }
 
 .hide {
