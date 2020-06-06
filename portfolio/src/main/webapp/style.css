@@ -254,15 +254,21 @@ div span {
 /* photo gallery */
 
 .photos {
-    width: calc(50% - .1rem);
-    padding: .2rem;
+    max-width: 100%;
     text-align: center;
+    margin: .3rem;
 }
 
 .photos img {
     display: block;
     object-fit: cover;
-    height: 100%;
     width: 100%;
 }
+
+@media (min-width: 660px) {
+    .photos {
+        width: calc(50% - 1rem); 
+    }
+}
+
 
