@@ -56,3 +56,23 @@ window.addEventListener("scroll", e => {
     }
 
 });
+
+let last_clicked;
+
+// add active class to selected button
+document.addEventListener("DOMContentLoaded", function(e) {
+    const buttons = document.getElementsByClassName("p-button");
+for (let b of buttons) {
+    b.addEventListener("click", function() {
+        if (b.className.indexOf("active") === -1) {
+            b.classList.add("active")
+        } else {
+            b.classList.remove("active")
+        }
+        if (last_clicked) {
+            last_clicked.classList.remove("active");
+        }
+        last_clicked = b;
+    })
+}
+})
