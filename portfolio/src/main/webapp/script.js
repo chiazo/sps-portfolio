@@ -43,3 +43,16 @@ function filterProjects(tag) {
 
     }
 }
+
+// show the return to top link after leaving top of page
+window.addEventListener("scroll", e => {
+    let returnLink = document.getElementById("return");
+    let fromTop = window.scrollY;
+
+    if (fromTop > 300) {
+       returnLink.classList.remove("top")
+    } else {
+        returnLink.classList.add("top")
+    }
+
+});

@@ -9,6 +9,10 @@ html {
     font-size: 3.2rem; 
 }
 
+.top {
+    display: none;
+}
+
 body {
     font-family: 'Inconsolata', monospace;
     line-height: 1.5;
@@ -20,6 +24,7 @@ body {
 }
 
 .p-button {
+    border: none;
     line-height: 2;
     margin: 1rem;
     font-size: 1rem;
@@ -27,10 +32,16 @@ body {
     padding: .5rem;
     border-radius: .2rem;
     white-space: nowrap;
-    background: #000000;
+    background: #181818;
     color: #eee;
     border: 1px dashed #8a3633;
+    box-shadow: 5px 5px 5px rgba(206, 206, 206, 0.322);
     min-width: 100px;
+}
+
+.p-button:hover {
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.137);
 }
 
 .hide {
@@ -42,7 +53,6 @@ body {
   margin-right: auto;
   max-width: 700px;
   width: 90%;
-  padding: 2rem;
 }
 
 #proj-bttns {
@@ -55,7 +65,7 @@ body {
 }
 
 .photos {
-    width: 49%;
+    width: calc(50% - .4rem);
     padding: .2rem;
     text-align: center;
 }
@@ -64,6 +74,7 @@ body {
     background: white;
     color: black;
     padding: 1rem;
+    z-index: 1;
     box-shadow: 5px 5px 5px rgb(52, 52, 52);
 }
 
@@ -76,22 +87,34 @@ body {
 
 .project-desc p {
     border: 1px solid #eee;
-    margin: 10px;
-    padding: 5px;
+    margin: 1rem;
+    padding: 1rem; 
 }
 
 #masthead h1, h2, h4, h5 {
-    background: linear-gradient(180deg, rgba(255,255,255,0) 80%, #8a3633 20%);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 85%, #8a3633 15%);
+    line-height: 1.2;
+}
+
+h1 {
+    margin-top: 4rem;
+}
+
+#content > div {
+    position: relative;
+}
+
+div span {
+    position: absolute;
+    top: -45px;
 }
 
 
-
-.project-desc div {
-    background: #8a3633;
-    margin: 1rem;
-    padding: .5rem;
-    min-width: 96%;
-    max-width: 100%;
+.project-desc > div {
+    border: 7px double #8a3633;
+    margin-bottom: 2rem;
+    z-index: -1;
+    min-width: 100%;
 }
 
 #photography, .project-desc {
@@ -100,8 +123,6 @@ body {
     flex-direction: row;
 
 }
-
-
 
 i img {
     width: 35px;
@@ -119,7 +140,7 @@ li {
     margin-top: 2rem;
 }
 
-.links ul {
+.links ul, .nav ul {
     display: table;
     margin: 0 auto;
     padding-inline-start: 0px;
@@ -129,8 +150,57 @@ li {
     -webkit-filter: invert(1);
     filter: invert(1);
 }
-
-.links li {
+ 
+.links li, .nav li {
     float: left;
     margin: 0 5px;
 }
+
+.nav a, .nav li {
+    font-size: 1.1rem;
+    margin: 0 .5rem;
+    padding: .2rem;
+    color: #eee;
+    line-height: 1.2;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.nav a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width: 100%;
+    background: rgb(0, 0, 0);
+    border-bottom: 1px solid white;
+}
+
+
+@media (min-width: 1080px) {
+    .nav {
+        width: 150px;
+        position: fixed;
+        z-index: 5;
+        top: 10rem;
+        left: 83%;
+        background-color: rgb(0, 0, 0);
+        border: none;
+        overflow: hidden;
+        padding: 1rem;
+        text-align: center;
+        margin: 1rem;
+    }
+    
+}
+
+.nav a:hover {
+    color: #dd7a77;
+}
+

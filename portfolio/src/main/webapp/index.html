@@ -10,13 +10,21 @@
 </head>
 
 <body>
+	<div class="nav">
+		<ul>
+			<li><i><a href="#about">About Me</a></i></li>
+			<li><i><a href="#all-projs">Projects</a></i></li>
+			<li><i><a href="#pics">Photos</a></i></li>
+			<li id="return"><i><a href="#top" >↑ top</a></i></li>
+		</ul>
+	</div>
 	<div id="content">
 		<div id="masthead">
 			<h1>Hi, I'm Chiazo!</h1>
 			<h3 class="tagline">Language enthusiast. Musician. Coder. Youtube Binger.<h3>
 					<div id="nav"></div>
 		</div>
-		<div id="bio">
+		<div id="bio"><span id="about"></span>
 			<p>A bit about me: I'm a rising junior at UNC! I'm originally from California's central valley and have
 				lived everywhere from Sequoia Kings Canyon National Park (22 days) to upstate New York (2 months) to
 				upstate New Mexico in a ~spooky~ castle (2 years). I currently study Computer Science and try whenever
@@ -24,7 +32,7 @@
 				productivity.
 			</p>
 		</div>
-		<div id="projects">
+		<div id="projects"><span id="all-projs"></span>
 			<h2>My (Presentable) Code: </h2>
 			<div id="proj-bttns">
 				<button class="p-button" onclick="filterProjects('all')">All</button>
@@ -72,7 +80,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="gallery">
+		<div class="gallery"><span id="pics"></span>
 			<h2>My Photography</h2>
 			<div id="photography">
 				<img src="images/hk2.jpg" class="photos"/>
