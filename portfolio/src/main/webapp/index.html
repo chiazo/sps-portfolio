@@ -14,9 +14,9 @@
 <body>
 	<div class="nav">
 		<ul>
-			<li><a href="#about">About Me</a></li>
-			<li><a href="#all-projs">Projects</a></li>
-			<li><a href="#pics">Photos</a></li>
+			<li onclick="showElement('bio')"><a href="#about">About Me</a></li>
+			<li ><a href="#all-projs">Projects</a></li>
+			<li onclick="showElement('pics')"><a href="#pics">Photos</a></li>
 			<li id="return"><a href="#top">↑ top</a></li>
 		</ul>
 	</div>
@@ -83,8 +83,8 @@
 			</div>
 		</div>
 		<div class="gallery container"><span id="pics"></span>
-			<h2>My Photography</h2>
 			<div id="photography" class="grid">
+				<h2>My Photography</h2>
 				<div class="cell"><img src="images/hk2.jpg" class="photos" /></div>
 				<div class="cell"><img src="images/hk5.jpg" class="photos" /></div>
 				<div class="cell"><img src="images/hk7.jpg" class="photos" /></div>

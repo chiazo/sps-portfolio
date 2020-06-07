@@ -12,6 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+let last_hidden = "";
+
+// hide/show bio or photos on link click
+function showElement(el_name) {
+    const bio = document.getElementById("bio")
+    const pics = document.getElementById("photography")
+
+    if (el_name === "bio") {
+        if (bio.className.indexOf("hide") !== -1) {
+            bio.classList.remove("hide")
+        } else {
+            bio.classList.add("hide")
+        }
+    } else {
+        if (pics.className.indexOf("hide") !== -1) {
+            pics.classList.remove("hide")
+        } else {
+            pics.classList.add("hide")
+        }
+    }
+}
+
 
 // shows certain projects based on selected tag + button
 function filterProjects(tag) {
@@ -50,7 +72,7 @@ window.addEventListener("scroll", e => {
     let fromTop = window.scrollY;
 
     if (fromTop > 300) {
-       returnLink.classList.remove("top")
+        returnLink.classList.remove("top")
     } else {
         returnLink.classList.add("top")
     }
@@ -60,19 +82,26 @@ window.addEventListener("scroll", e => {
 let last_clicked;
 
 // add active class to selected button
-document.addEventListener("DOMContentLoaded", function(e) {
+document.addEventListener("DOMContentLoaded", function (e) {
+    
+    // set bio & photos to initially hidden
+    const bio = document.getElementById("bio")
+    const pics = document.getElementById("photography")
+    bio.classList.add("hide")
+    pics.classList.add("hide")
+    
     const buttons = document.getElementsByClassName("p-button");
-for (let b of buttons) {
-    b.addEventListener("click", function() {
-        if (b.className.indexOf("active") === -1) {
-            b.classList.add("active")
-        } else {
-            b.classList.remove("active")
-        }
-        if (last_clicked) {
-            last_clicked.classList.remove("active");
-        }
-        last_clicked = b;
-    })
-}
+    for (let b of buttons) {
+        b.addEventListener("click", function () {
+            if (b.className.indexOf("active") === -1) {
+                b.classList.add("active")
+            } else {
+                b.classList.remove("active")
+            }
+            if (last_clicked) {
+                last_clicked.classList.remove("active");
+            }
+            last_clicked = b;
+        })
+    }
 })

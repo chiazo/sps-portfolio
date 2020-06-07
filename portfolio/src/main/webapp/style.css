@@ -134,11 +134,6 @@ li {
     }
 }
 
-.top {
-    display: none;
-}
-
-
 #bio {
     background-color: var(--highlight-color);
     padding: .2rem 1rem;
@@ -208,7 +203,7 @@ h1 {
     background: var(--highlight-color);
 }
 
-.hide {
+.hide, .top {
     display: none;
 }
 
