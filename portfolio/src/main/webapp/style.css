@@ -3,7 +3,10 @@
 
 /* html + body */
 
-*, ::before, ::after, html {
+*,
+::before,
+::after,
+html {
     box-sizing: border-box;
     --hover-color: #77dd7c;
     --highlight-color: #72863c;
@@ -12,7 +15,7 @@
 }
 
 html {
-    background-color:  var(--bg-color);
+    background-color: var(--bg-color);
     color: #eee
 }
 
@@ -40,7 +43,8 @@ li {
     margin-top: 1rem;
 }
 
-.links ul, .nav ul {
+.links ul,
+.nav ul {
     display: table;
     margin: 0 auto;
     padding-inline-start: 0px;
@@ -50,13 +54,15 @@ li {
     -webkit-filter: invert(1);
     filter: invert(1);
 }
- 
-.links li, .nav li {
+
+.links li,
+.nav li {
     float: left;
     margin: 0 5px;
 }
 
-.nav a, .nav li {
+.nav a,
+.nav li {
     font-size: 1.1rem;
     padding: .2rem;
     color: var(--font-color);
@@ -66,7 +72,9 @@ li {
 }
 
 @media (min-width: 1080px) {
-    .nav a, .nav li {
+
+    .nav a,
+    .nav li {
         margin: 0 .5rem;
     }
 }
@@ -99,14 +107,14 @@ li {
         z-index: 5;
         top: 10rem;
         left: 83%;
-        background-color:var(--bg-color);
+        background-color: var(--bg-color);
         border: none;
         overflow: hidden;
         padding: 1rem;
         text-align: center;
         margin: 1rem;
     }
-    
+
 }
 
 .nav a:hover {
@@ -116,13 +124,13 @@ li {
 /* masthead */
 
 .tagline {
-    font-size: 2rem; 
+    font-size: 2rem;
 }
 
 
 @media (min-width: 850px) {
     .tagline {
-        font-size: 3.2rem; 
+        font-size: 3.2rem;
     }
 }
 
@@ -138,7 +146,10 @@ li {
     margin-bottom: 2rem;
 }
 
-#masthead h1, h2, h4, h5 {
+#masthead h1,
+h2,
+h4,
+h5 {
     /* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 85%, var(--highlight-color) 15%); */
     line-height: 1.2;
     color: var(--hover-color);
@@ -161,7 +172,7 @@ h1 {
     white-space: nowrap;
     background: none;
     color: var(--font-color);
-    border: 1px dashed  var(--highlight-color);
+    border: 1px dashed var(--highlight-color);
     box-shadow: 1px 1px 2px rgba(155, 93, 43, 0.897);
     min-width: 50px;
 }
@@ -204,10 +215,10 @@ h1 {
 /* content */
 
 #content {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 700px;
-  width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    width: 90%;
 }
 
 /* project listing */
@@ -223,11 +234,11 @@ h1 {
 .project-desc p {
     border: 1px solid #eee;
     margin: 1rem;
-    padding: 1rem; 
+    padding: 1rem;
 }
 
 
-#content > div {
+#content>div {
     position: relative;
 }
 
@@ -237,14 +248,14 @@ div span {
 }
 
 
-.project-desc > div {
-    border: 7px double  var(--highlight-color);
+.project-desc>div {
+    border: 7px double var(--highlight-color);
     margin-bottom: 2rem;
     z-index: -1;
     min-width: 100%;
 }
 
-#photography, .project-desc {
+.project-desc {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -253,16 +264,67 @@ div span {
 
 /* photo gallery */
 
-.photos {
-    width: calc(50% - .1rem);
-    padding: .2rem;
+.container {
+    max-width: 1200px;
+    width: 100%;
     text-align: center;
+    justify-content: center;
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+    /* margin: 0 0; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
 }
 
-.photos img {
+.container::before,
+.container::after {
+    display: table;
+    content: "";
+    clear: both;
+    width: 100%;
+}
+
+@media screen and (min-width: 650px) {
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+.cell {
+    margin: .5rem;
+    max-height: 100%;
+}
+
+.cell img {
     display: block;
     object-fit: cover;
     height: 100%;
     width: 100%;
 }
 
+.photos {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 650px) {
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .cell {
+        width: calc(50% - 1rem);
+        max-width: 100%;
+    }
+}
