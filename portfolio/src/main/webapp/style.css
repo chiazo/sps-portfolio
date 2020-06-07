@@ -203,9 +203,12 @@ h1 {
     background: var(--highlight-color);
 }
 
-.hide, .top {
+.hide,
+.top {
     display: none !important;
 }
+
+
 
 /* content */
 
@@ -218,14 +221,6 @@ h1 {
 
 /* project listing */
 
-.project-desc a {
-    background: white;
-    color: var(--bg-color);
-    padding: 1rem;
-    z-index: 1;
-    box-shadow: 5px 5px 5px rgb(52, 52, 52);
-}
-
 .project-desc p {
     border: 1px solid #eee;
     margin: 1rem;
@@ -237,7 +232,9 @@ h1 {
     position: relative;
 }
 
-div span {
+#bio span,
+#projects>span,
+.gallery span {
     position: absolute;
     top: -45px;
 }
@@ -246,7 +243,6 @@ div span {
 .project-desc>div {
     border: 7px double var(--highlight-color);
     margin-bottom: 2rem;
-    z-index: -1;
     min-width: 100%;
 }
 
@@ -255,6 +251,57 @@ div span {
     flex-wrap: wrap;
     flex-direction: row;
 
+}
+
+.proj-title {
+    list-style: none;
+    margin: 0;
+}
+
+.proj-title a {
+    background: white;
+    color: var(--bg-color);
+    padding: 1rem;
+    box-shadow: 5px 5px 5px rgb(52, 52, 52);
+}
+
+.proj-title span {
+    font-size: 1rem;
+    line-height: 1;
+    vertical-align: -.55rem;
+    font-weight: 400;
+    margin-left: .5rem;
+    padding: .4rem;
+    border-radius: .2rem;
+    white-space: nowrap;
+}
+
+.pink {
+    background: purple;
+}
+
+.green {
+    background: rgb(81, 153, 39);
+}
+
+.blue {
+    background: rgb(39, 102, 153);
+}
+
+.purple {
+    background: rgb(77, 97, 214);
+}
+
+.orange {
+    background: rgb(196, 117, 33);
+}
+
+.red {
+    background: rgb(196, 33, 82);
+}
+
+.yellow {
+    background: rgb(165, 149, 4);
 }
 
 /* photo gallery */

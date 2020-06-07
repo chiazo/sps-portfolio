@@ -15,7 +15,7 @@
 	<div class="nav">
 		<ul>
 			<li onclick="showElement('bio')"><a href="#about" id="bio-b">About Me</a></li>
-			<li ><a href="#all-projs">Projects</a></li>
+			<li><a href="#all-projs">Projects</a></li>
 			<li onclick="showElement('pics')"><a href="#pics" id="pic-b">Photos</a></li>
 			<li id="return"><a href="#top">↑ top</a></li>
 		</ul>
@@ -47,44 +47,60 @@
 			</div>
 			<div class="project-desc">
 				<div id="word-adder" class="proj lang js">
-					<a href="https://github.com/chiazo/word-adder">Word Adder</a>
+					<li class="proj-title"><a href="https://github.com/chiazo/word-adder">Word Adder</a>
+						<span class="tag purple">Node.js</span>
+						<span class="tag green">Google Sheets API</span>
+						<span class="tag red">JavaScript</span>
+					</li>
 					<div>
 						<p>A program to update foreign vocab lists hosted on google sheets with definitions & example
 							sentences</p>
 					</div>
 				</div>
 				<div id="my-planner" class="proj react js">
-					<a href="https://chiazo.github.io/my-planner/">My Planner</a>
+					<li class="proj-title"><a href="https://chiazo.github.io/my-planner/">My Planner</a>
+						<span class="tag blue">React</span>
+						<span class="tag red">JavaScript</span>
+					</li>
 					<div>
 						<p>A web app that creates a daily schedule based on inputed tasks and their estimated time for
 							completion.</p>
 					</div>
 				</div>
 				<div id="read-learn" class="proj lang ts">
-					<a href="https://chiazo.github.io/read-learn">Read Learn</a>
+					<li class="proj-title"><a href="https://chiazo.github.io/read-learn">Read Learn</a>
+						<span class="tag pink">TypeScript</span>
+					</li>
 					<div>
 						<p>A web app that takes in a text in another language, allowing the user to click words they
 							don't know. Outputs a list of words to study later!</p>
 					</div>
 				</div>
 				<div id="syndrome" class="proj css js sass">
-					<a href="https://chiazo.github.io/syndrome/">Syndrome</a>
+					<li class="proj-title"><a href="https://chiazo.github.io/syndrome/">Syndrome</a>
+						<span class="tag orange">Sass</span>
+						<span class="tag red">JavaScript</span>
+					</li>
 					<div>
 						<p>A CSS framework built using Sass. Syndrome is a toolkit featuring all of my favorite CSS
 							styles in one place.</p>
 					</div>
 				</div>
 				<div id="personal-site" class="proj css js jekyll">
-					<a href="https://chiazo.github.io/">chiazo.github.io</a>
+					<li class="proj-title"><a href="https://chiazo.github.io/">chiazo.github.io</a>
+						<span class="tag yellow">Jekyll</span>
+						<span class="tag orange">Sass</span>
+						<span class="tag red">JavaScript</span>
+					</li>
 					<div>
 						<p>My personal website!</p>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="gallery container" ><span id="pics"></span>
+		<div class="gallery container"><span id="pics"></span>
 			<h2 id="gallery_title">My Photography</h2>
-			<div class="grid" id="photography" >
+			<div class="grid" id="photography">
 				<div class="cell"><img src="images/hk2.jpg" class="photos" /></div>
 				<div class="cell"><img src="images/hk5.jpg" class="photos" /></div>
 				<div class="cell"><img src="images/hk7.jpg" class="photos" /></div>
