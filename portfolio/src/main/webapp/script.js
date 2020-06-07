@@ -18,18 +18,26 @@ let last_hidden = "";
 function showElement(el_name) {
     const bio = document.getElementById("bio")
     const pics = document.getElementById("photography")
+    const pic_title = document.getElementById("gallery_title")
 
     if (el_name === "bio") {
         if (bio.className.indexOf("hide") !== -1) {
             bio.classList.remove("hide")
         } else {
             bio.classList.add("hide")
+            const bio_b = document.getElementById("bio-b")
+            bio_b.setAttribute("href", "#")
         }
     } else {
+        const pic_b = document.getElementById("pic-b")
         if (pics.className.indexOf("hide") !== -1) {
             pics.classList.remove("hide")
+            pic_title.classList.remove("hide")
+            pic_b.setAttribute("href", "#pics")
         } else {
             pics.classList.add("hide")
+            pic_title.classList.add("hide")
+            pic_b.setAttribute("href", "#")
         }
     }
 }
@@ -87,8 +95,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
     // set bio & photos to initially hidden
     const bio = document.getElementById("bio")
     const pics = document.getElementById("photography")
+    const pic_title = document.getElementById("gallery_title")
     bio.classList.add("hide")
     pics.classList.add("hide")
+    pic_title.classList.add("hide")
     
     const buttons = document.getElementsByClassName("p-button");
     for (let b of buttons) {
