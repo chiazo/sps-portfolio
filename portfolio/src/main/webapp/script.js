@@ -45,7 +45,6 @@ function showElement(el_name) {
 
 // shows certain projects based on selected tag + button
 function filterProjects(tag) {
-
     const allProjs = document.getElementsByClassName("proj");
 
     switch (tag) {
