@@ -3,19 +3,31 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Chiazo's Portfolio</title>
+	<title>Chiazo Agina</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/png" href="/images/favicons/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<script src="script.js"></script>
 </head>
 
 <body>
+	<div class="nav">
+		<ul>
+			<li onclick="showElement('bio')"><a href="#about" id="bio-b">About Me</a></li>
+			<li><a href="#all-projs">Projects</a></li>
+			<li onclick="showElement('pics')"><a href="#pics" id="pic-b">Photos</a></li>
+			<li><a href="#fetched-content">Comments</a></li>
+            <li onclick="showElement('comments')" id="return"><a href="#top">↑ top</a></li>
+		</ul>
+	</div>
 	<div id="content">
 		<div id="masthead">
 			<h1>Hi, I'm Chiazo!</h1>
-			<h4>Language enthusiast. Musician. Coder. Youtube Binger.<h4>
+			<h3 class="tagline">Language enthusiast. Musician. Coder. Youtube Binger.<h3>
 					<div id="nav"></div>
 		</div>
-		<div id="bio">
+		<div id="bio"><span id="about"></span>
 			<p>A bit about me: I'm a rising junior at UNC! I'm originally from California's central valley and have
 				lived everywhere from Sequoia Kings Canyon National Park (22 days) to upstate New York (2 months) to
 				upstate New Mexico in a ~spooky~ castle (2 years). I currently study Computer Science and try whenever
@@ -23,7 +35,8 @@
 				productivity.
 			</p>
 		</div>
-		<div id="projects">
+
+		<div id="projects"><span id="all-projs"></span>
 			<h2>My (Presentable) Code: </h2>
 			<div id="proj-bttns">
 				<button class="p-button" onclick="filterProjects('all')">All</button>
@@ -35,60 +48,76 @@
 				<button class="p-button" onclick="filterProjects('jekyll')">Jekyll</button>
 			</div>
 			<div class="project-desc">
-				<div id="word-adder" class="lang js">
-					<a href="https://github.com/chiazo/word-adder">Word Adder</a>
+				<div id="word-adder" class="proj lang js">
+					<li class="proj-title"><a href="https://github.com/chiazo/word-adder">Word Adder</a>
+						<span class="tag purple">Node.js</span>
+						<span class="tag green">Google Sheets API</span>
+						<span class="tag red">JavaScript</span>
+					</li>
 					<div>
 						<p>A program to update foreign vocab lists hosted on google sheets with definitions & example
 							sentences</p>
 					</div>
 				</div>
-				<div id="my-planner" class="lang react js">
-					<a href="https://chiazo.github.io/my-planner/">My Planner</a>
+				<div id="my-planner" class="proj react js">
+					<li class="proj-title"><a href="https://chiazo.github.io/my-planner/">My Planner</a>
+						<span class="tag blue">React</span>
+						<span class="tag red">JavaScript</span>
+					</li>
 					<div>
 						<p>A web app that creates a daily schedule based on inputed tasks and their estimated time for
 							completion.</p>
 					</div>
 				</div>
-				<div id="read-learn" class="lang ts">
-					<a href="https://chiazo.github.io/read-learn">Read Learn</a>
+				<div id="read-learn" class="proj lang ts">
+					<li class="proj-title"><a href="https://chiazo.github.io/read-learn">Read Learn</a>
+						<span class="tag pink">TypeScript</span>
+					</li>
 					<div>
 						<p>A web app that takes in a text in another language, allowing the user to click words they
 							don't know. Outputs a list of words to study later!</p>
 					</div>
 				</div>
-				<div id="syndrome" class="css js sass">
-					<a href="https://chiazo.github.io/syndrome/">Syndrome</a>
+				<div id="syndrome" class="proj css js sass">
+					<li class="proj-title"><a href="https://chiazo.github.io/syndrome/">Syndrome</a>
+						<span class="tag orange">Sass</span>
+						<span class="tag red">JavaScript</span>
+					</li>
 					<div>
 						<p>A CSS framework built using Sass. Syndrome is a toolkit featuring all of my favorite CSS
 							styles in one place.</p>
 					</div>
 				</div>
-				<div id="personal-site" class="css js jekyll">
-					<a href="https://chiazo.github.io/">chiazo.github.io</a>
+				<div id="personal-site" class="proj css js jekyll">
+					<li class="proj-title"><a href="https://chiazo.github.io/">chiazo.github.io</a>
+						<span class="tag yellow">Jekyll</span>
+						<span class="tag orange">Sass</span>
+						<span class="tag red">JavaScript</span>
+					</li>
 					<div>
 						<p>My personal website!</p>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="gallery">
-			<h2>My Photography</h2>
-			<div id="photography">
-				<img src="images/hk2.jpg" class="photos"/>
-				<img src="images/hk5.jpg" class="photos"/>
-				<img src="images/hk7.jpg" class="photos"/>
-				<img src="images/hk8.jpg" class="photos"/>
-		</div>
-			</div>
-			<div class="links">
-				<ul>
-					<li><i><a href="https://www.linkedin.com/in/chiazo"><img src="/images/favicons/linkedin.png"/></a></i>
-					</li>
-					<li><i><a href="https://github.com/chiazo"><img src="/images/favicons/github.png"/></a></i></li>
-					<li><i><a href="https://chiazo.github.io"><img src="/images/favicons/website.png"/></a></i></li>
-				</ul>
+		<div class="gallery container"><span id="pics"></span>
+			<h2 id="gallery_title">My Photography</h2>
+			<div class="grid" id="photography">
+				<div class="cell"><img src="images/hk2.jpg" class="photos" /></div>
+				<div class="cell"><img src="images/hk5.jpg" class="photos" /></div>
+				<div class="cell"><img src="images/hk7.jpg" class="photos" /></div>
+				<div class="cell"><img src="images/hk8.jpg" class="photos" /></div>
 			</div>
 		</div>
+        <div id="fetched-content"></div>
+		<div class="links">
+			<ul>
+				<li><i><a href="https://www.linkedin.com/in/chiazo"><img src="/images/favicons/linkedin.png" /></a></i></li>
+				<li><i><a href="https://github.com/chiazo"><img src="/images/favicons/github.png" /></a></i></li>
+				<li><i><a href="https://chiazo.github.io"><img src="/images/favicons/website.png" /></a></i></li>
+			</ul>
+		</div>
+	</div>
 </body>
 
 </html>

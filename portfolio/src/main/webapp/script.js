@@ -12,45 +12,114 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
-function addRandomFact() {
-  const facts =
-      ['I speak four languages', 'I used to live in a castle!', `I've spent over 50 days in the woods`, 'One of my favorite tv shows is La Casa de Papel'];
+let last_hidden = "";
 
-  // Pick a random greeting.
-  const fact = facts[Math.floor(Math.random() * facts.length)];
+// hide/show bio or photos on link click
+function showElement(el_name) {
+    const bio = document.getElementById("bio")
+    const pics = document.getElementById("photography")
+    const pic_title = document.getElementById("gallery_title")
 
-  // Add it to the page.
-  const factContainer = document.getElementById('fact-container');
-  factContainer.innerText = fact;
+    if (el_name === "bio") {
+        if (bio.className.indexOf("hide") !== -1) {
+            bio.classList.remove("hide")
+        } else {
+            bio.classList.add("hide")
+            const bio_b = document.getElementById("bio-b")
+            bio_b.setAttribute("href", "#")
+        }
+    } else {
+        const pic_b = document.getElementById("pic-b")
+        if (pics.className.indexOf("hide") !== -1) {
+            pics.classList.remove("hide")
+            pic_title.classList.remove("hide")
+            pic_b.setAttribute("href", "#pics")
+        } else {
+            pics.classList.add("hide")
+            pic_title.classList.add("hide")
+            pic_b.setAttribute("href", "#")
+        }
+    }
 }
 
-function filterProjects(tag) {
 
-    let allProjs = document.getElementsByClassName("project-desc");
+// shows certain projects based on selected tag + button
+function filterProjects(tag) {
+    const allProjs = document.getElementsByClassName("proj");
 
     switch (tag) {
-        case all:
-        break;
-        
-        case lang:
-        break;
+        case "all":
+            for (let el of allProjs) {
+                if (el.classList.contains("hide")) {
+                    el.classList.remove("hide")
 
-        case js:
-        break;
+                }
+            }
+            break;
 
-        case ts:
-        break;
-        
-        case react:
-        break;
+        default:
+            for (let el of allProjs) {
+                if (el.className.indexOf(tag) !== -1) {
+                    if (el.classList.contains("hide")) {
+                        el.classList.remove("hide")
+                    }
+                } else {
+                    el.classList.add("hide")
+                }
+            }
+            break;
 
-        case jekyll:
-        break;
 
-        case sass:
-        break;
-    } 
+    }
+}
+
+// show the return to top link after leaving top of page
+window.addEventListener("scroll", e => {
+    let returnLink = document.getElementById("return");
+    let fromTop = window.scrollY;
+
+    if (fromTop > 300) {
+        returnLink.classList.remove("top")
+    } else {
+        returnLink.classList.add("top")
+    }
+
+});
+
+let last_clicked;
+
+// add active class to selected button
+document.addEventListener("DOMContentLoaded", function (e) {
+    
+    // set bio & photos to initially hidden
+    const bio = document.getElementById("bio")
+    const pics = document.getElementById("photography")
+    const pic_title = document.getElementById("gallery_title")
+    bio.classList.add("hide")
+    pics.classList.add("hide")
+    pic_title.classList.add("hide")
+    
+    const buttons = document.getElementsByClassName("p-button");
+    for (let b of buttons) {
+        b.addEventListener("click", function () {
+            if (b.className.indexOf("active") === -1) {
+                b.classList.add("active")
+            } else {
+                b.classList.remove("active")
+            }
+            if (last_clicked) {
+                last_clicked.classList.remove("active");
+            }
+            last_clicked = b;
+        })
+    }
+
+    getComments();
+})
+
+// fetch content + append it to #fetched-content div
+async function getComments() {
+    const response = await fetch('/data');
+    const text = await response.text();
+    document.getElementById('fetched-content').innerText = text;
 }
