@@ -45,7 +45,6 @@ function showElement(el_name) {
 
 // shows certain projects based on selected tag + button
 function filterProjects(tag) {
-
     const allProjs = document.getElementsByClassName("proj");
 
     switch (tag) {
@@ -114,4 +113,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
             last_clicked = b;
         })
     }
+
+    getComments();
 })
+
+// fetch content + append it to #fetched-content div
+async function getComments() {
+    const response = await fetch('/data');
+    const text = await response.text();
+    document.getElementById('fetched-content').innerText = text;
+}
