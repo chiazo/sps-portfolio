@@ -18,17 +18,18 @@ let last_hidden = "";
 function showElement(el_name) {
     const bio = document.getElementById("bio")
     const pics = document.getElementById("photography")
+    const comments = document.getElementById("comments")
     const pic_title = document.getElementById("gallery_title")
 
     if (el_name === "bio") {
         if (bio.className.indexOf("hide") !== -1) {
             bio.classList.remove("hide")
         } else {
-            bio.classList.add("hide")
             const bio_b = document.getElementById("bio-b")
+            bio.classList.add("hide")
             bio_b.setAttribute("href", "#")
         }
-    } else {
+    } else if (el_name === "pics") {
         const pic_b = document.getElementById("pic-b")
         if (pics.className.indexOf("hide") !== -1) {
             pics.classList.remove("hide")
@@ -38,6 +39,15 @@ function showElement(el_name) {
             pics.classList.add("hide")
             pic_title.classList.add("hide")
             pic_b.setAttribute("href", "#")
+        }
+    } else {
+        const comment_b = document.getElementById("comment-b")
+        if (comments.className.indexOf("hide") !== -1) {
+            comments.classList.remove("hide")
+            comment_b.setAttribute("href", "#comments")
+        } else {
+            comments.classList.add("hide")
+            comment_b.setAttribute("href", "#")
         }
     }
 }
@@ -91,12 +101,17 @@ let last_clicked;
 // add active class to selected button
 document.addEventListener("DOMContentLoaded", function (e) {
     
+    // load comments
+    getComments();
+
     // set bio & photos to initially hidden
     const bio = document.getElementById("bio")
     const pics = document.getElementById("photography")
+    const comments = document.getElementById("comments")
     const pic_title = document.getElementById("gallery_title")
     bio.classList.add("hide")
     pics.classList.add("hide")
+    comments.classList.add("hide")
     pic_title.classList.add("hide")
     
     const buttons = document.getElementsByClassName("p-button");
@@ -113,8 +128,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             last_clicked = b;
         })
     }
-
-    getComments();
 })
 
 // fetch content + append it to #fetched-content div
