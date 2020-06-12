@@ -14,10 +14,12 @@
 
 let last_hidden = "";
 
+// handle change of html page
 function navigate(page) {
     let url = window.location.href, next_page;
     if (page) {
         url = url.split("#")[0]
+        url = url.split("?")[0]
         next_page = url + page
     } else {
         next_page = url.split("comment.html")[0]

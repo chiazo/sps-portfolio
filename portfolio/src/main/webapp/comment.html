@@ -23,19 +23,21 @@
 			<h3 class="tagline">Sumbit your thoughts. pls.<h3>
 		</div>
 
-        <div id="comments">
-            <div id="comment-form">
-                <form action="/add-comment" method="POST">
-                    <input type="text" value="ur name pls"/>
-                    <input type="email" value="gimme ur email quick"/>
-                    <input type="button" value="submit ur comment!"/>
+		<div id="comments">
+			<div id="comment-form">
+				<form action="/add-comment" method="POST" class="comment-form">
+					<input type="text" id="name" placeholder="ur name pls" class="required" required/>
+					<input type="email" id="email" placeholder="gimme ur email quick"/>
+					<textarea id="comment" cols="30" rows="3" placeholder="leave ur message here!" class="required" required></textarea>
+					<input type="submit" value="submit comment!"/>
                 </form>
-            </div>
-            <div id="fetched-content"></div>
-        </div>
+			</div>
+			<div id="fetched-content"></div>
+		</div>
 		<div class="links">
 			<ul>
-				<li><i><a href="https://www.linkedin.com/in/chiazo"><img src="/images/favicons/linkedin.png" /></a></i></li>
+				<li><i><a href="https://www.linkedin.com/in/chiazo"><img src="/images/favicons/linkedin.png" /></a></i>
+				</li>
 				<li><i><a href="https://github.com/chiazo"><img src="/images/favicons/github.png" /></a></i></li>
 				<li><i><a href="https://chiazo.github.io"><img src="/images/favicons/website.png" /></a></i></li>
 			</ul>
