@@ -14,6 +14,17 @@
 
 let last_hidden = "";
 
+function navigate(page) {
+    let url = window.location.href, next_page;
+    if (page) {
+        url = url.split("#")[0]
+        next_page = url + page
+    } else {
+        next_page = url.split("comment.html")[0]
+    }
+    window.location.href = next_page
+}
+
 // hide/show bio or photos on link click
 function showElement(el_name) {
     const bio = document.getElementById("bio")

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Submit A Comment!</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/png" href="/images/favicons/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script src="script.js"></script>
+</head>
+
+<body>
+	<div class="nav">
+		<ul>
+			<li onclick="navigate()"><a>go back home!</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<div id="masthead">
+			<h1>~ Open to <strike>gentle</strike> feedback 25/8 ~</h1>
+			<h3 class="tagline">Sumbit your thoughts. pls.<h3>
+		</div>
+
+        <div id="comments">
+            <div id="comment-form">
+                <form action="/add-comment" method="POST">
+                    <input type="text" value="ur name pls"/>
+                    <input type="email" value="gimme ur email quick"/>
+                    <input type="button" value="submit ur comment!"/>
+                </form>
+            </div>
+            <div id="fetched-content"></div>
+        </div>
+		<div class="links">
+			<ul>
+				<li><i><a href="https://www.linkedin.com/in/chiazo"><img src="/images/favicons/linkedin.png" /></a></i></li>
+				<li><i><a href="https://github.com/chiazo"><img src="/images/favicons/github.png" /></a></i></li>
+				<li><i><a href="https://chiazo.github.io"><img src="/images/favicons/website.png" /></a></i></li>
+			</ul>
+		</div>
+	</div>
+</body>
+
+</html>
