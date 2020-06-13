@@ -119,22 +119,6 @@ li {
         position: fixed;
     }
 
-    input,
-    textarea,
-    select {
-        width: 80%;
-    }
-
-    #fetched-content h1 {
-        margin-top: 1rem;
-    }
-
-    #comment-form {
-        position: fixed;
-        box-sizing: none;
-        bottom: 10%;
-    }
-
 }
 
 .nav a:hover,
@@ -461,7 +445,17 @@ select {
 .column {
     float: right;
     width: 45%;
-    text-align: center;
+    text-align: justify;
+}
+
+.comment-name {
+    font-weight: 900;
+    text-decoration: underline;
+    color: rgb(139, 37, 37);
+}
+
+.comment-time {
+    color: darkgray;
 }
 
 @media screen and (max-width: 700px) {
@@ -472,3 +466,22 @@ select {
     }
 
 }
+
+@media screen and (min-width: 701px) {
+       input,
+    textarea,
+    select {
+        width: 80%;
+    }
+
+    #fetched-content h1 {
+        margin-top: 1rem;
+    }
+
+    #comment-form {
+        position: fixed;
+        box-sizing: none;
+        bottom: 10%;
+    }
+}
+

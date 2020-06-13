@@ -144,16 +144,38 @@ async function getComments() {
 
     all_comments.forEach(function (val, idx, arr) {
         arr[idx] = JSON.parse(val)
+        console.log(val)
     })
+
 
     for (let submission of all_comments) {
         let curr_comment = document.createElement("div");
         curr_comment.classList += "comment";
-        curr_comment.innerText = submission.name + ": " + submission.comment + " | submitted on: " + submission.time;
+
+        let name = document.createElement("span");
+        name.innerText = submission.name;
+        name.classList += " comment-name";
+
+        let comment = document.createElement("span");
+        comment.innerText = submission.comment;
+        comment.classList += " comment-comment";
+
+        let time = document.createElement("div");
+        time.appendChild(document.createTextNode("submitted on: "));
+        time.appendChild(document.createTextNode(submission.time));
+        time.classList += " comment-time";
+
+        curr_comment.appendChild(name);
+        curr_comment.appendChild(document.createTextNode(": "));
+        curr_comment.appendChild(comment);
+        curr_comment.appendChild(time);
+        // curr_comment.innerText = submission.name + ": " + submission.comment + " | submitted on: " + submission.time;
         comment_div.appendChild(curr_comment);
 
     }
 
-    document.getElementById('fetched-content').appendChild(comment_div);
+    if (document.getElementById('fetched-content')) {
+        document.getElementById('fetched-content').appendChild(comment_div);
+    }
 
 }
