@@ -172,14 +172,10 @@ select {
   
   }
 
-  .required::after {
-      content: "*";
-      color: red;
-  }
 
 /* buttons */
 
-.p-button {
+.p-button, .comment {
     border: none;
     line-height: 2;
     margin: 1rem;
@@ -193,6 +189,11 @@ select {
     border: 1px dashed var(--highlight-color);
     box-shadow: 1px 1px 2px rgba(155, 93, 43, 0.897);
     min-width: 50px;
+}
+
+.comment {
+    background-color: #eee;
+    color: #252525;
 }
 
 *:focus:not(.focus-visible) {

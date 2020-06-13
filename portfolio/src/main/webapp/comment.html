@@ -25,14 +25,16 @@
 
 		<div id="comments">
 			<div id="comment-form">
-				<form action="/add-comment" method="POST" class="comment-form">
-					<input type="text" id="name" placeholder="ur name pls" class="required" required/>
-					<input type="email" id="email" placeholder="gimme ur email quick"/>
-					<textarea id="comment" cols="30" rows="3" placeholder="leave ur message here!" class="required" required></textarea>
-					<input type="submit" value="submit comment!"/>
+				<form action="/data" method="POST">
+					<input type="text" name="name" placeholder="ur name pls" class="required" required/>
+					<input type="email" name="email" placeholder="gimme ur email quick"/>
+					<textarea name="comment" cols="30" rows="3" placeholder="leave ur message here!" class="required" required></textarea>
+					<input type="submit" onclick="getComments()" value="submit comment!"/>
                 </form>
 			</div>
-			<div id="fetched-content"></div>
+			<div id="fetched-content">
+                <div><h1>COMMENTS:</h1></div>
+            </div>
 		</div>
 		<div class="links">
 			<ul>

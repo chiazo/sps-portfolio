@@ -31,7 +31,6 @@ function navigate(page) {
 function showElement(el_name) {
     const bio = document.getElementById("bio")
     const pics = document.getElementById("photography")
-    const comments = document.getElementById("comments")
     const pic_title = document.getElementById("gallery_title")
 
     if (el_name === "bio") {
@@ -42,7 +41,7 @@ function showElement(el_name) {
             bio.classList.add("hide")
             bio_b.setAttribute("href", "#")
         }
-    } else if (el_name === "pics") {
+    } else {
         const pic_b = document.getElementById("pic-b")
         if (pics.className.indexOf("hide") !== -1) {
             pics.classList.remove("hide")
@@ -53,16 +52,7 @@ function showElement(el_name) {
             pic_title.classList.add("hide")
             pic_b.setAttribute("href", "#")
         }
-    } else {
-        const comment_b = document.getElementById("comment-b")
-        if (comments.className.indexOf("hide") !== -1) {
-            comments.classList.remove("hide")
-            comment_b.setAttribute("href", "#comments")
-        } else {
-            comments.classList.add("hide")
-            comment_b.setAttribute("href", "#")
-        }
-    }
+    } 
 }
 
 
@@ -104,7 +94,7 @@ window.addEventListener("scroll", e => {
     if (fromTop > 300) {
         returnLink.classList.remove("top")
     } else {
-        returnLink.classList.add("top")
+        if (returnLink) returnLink.classList.add("top")
     }
 
 });
@@ -113,19 +103,17 @@ let last_clicked;
 
 // add active class to selected button
 document.addEventListener("DOMContentLoaded", function (e) {
-    
-    // load comments
-    getComments();
 
+    getComments();
     // set bio & photos to initially hidden
     const bio = document.getElementById("bio")
     const pics = document.getElementById("photography")
-    const comments = document.getElementById("comments")
+    // const comments = document.getElementById("comments")
     const pic_title = document.getElementById("gallery_title")
-    bio.classList.add("hide")
-    pics.classList.add("hide")
-    comments.classList.add("hide")
-    pic_title.classList.add("hide")
+    if (bio) bio.classList.add("hide")
+    if (pics) pics.classList.add("hide")
+    if (pic_title) pic_title.classList.add("hide")
+    // if (comments) comments.classList.add("hide")
     
     const buttons = document.getElementsByClassName("p-button");
     for (let b of buttons) {
@@ -145,7 +133,28 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 // fetch content + append it to #fetched-content div
 async function getComments() {
+    let comment_div = document.createElement("div");
+
     const response = await fetch('/data');
+    console.log("response", response)
     const text = await response.text();
-    document.getElementById('fetched-content').innerText = text;
+
+    var all_comments = text.split("\n");
+    all_comments = all_comments.filter(x => x.length > 0);
+   
+    all_comments.forEach(function(val, idx, arr) {
+       arr[idx] = JSON.parse(val)
+    })
+
+    for (let submission of all_comments) {
+        let curr_comment = document.createElement("div");
+        curr_comment.classList += "comment";
+        console.log(submission)
+        curr_comment.innerText = submission.name + " - " + submission.comment + " | submitted on: " + submission.time;
+        comment_div.appendChild(curr_comment);
+    }
+ 
+    
+    document.getElementById('fetched-content').appendChild(comment_div);
+ 
 }

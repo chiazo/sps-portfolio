@@ -19,30 +19,64 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
+import com.google.sps.data.Comment;
+import com.google.gson.Gson;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    private String[] retrieveComments() {
-        ArrayList<String> comments = new ArrayList<String>();
-        comments.add("user1: hey what's up");
-        comments.add("user2: no way, you're joking!");
-        comments.add("user3: wow, great job.");
-        return comments.toArray(new String[comments.size()]);
-    } 
+    List<Comment> comments = new ArrayList<Comment>();
+    
+    public DataServlet() {
+        addComment("hi", "what", new Date());
+        addComment("no", "yay", new Date());
+    }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html;");
-    // response.getWriter().println("Hello Chiazo!");
-    // response.getWriter().println(retrieveComments());
-    String[] all_comments = retrieveComments();
-    for (String c : all_comments) {
-        response.getWriter().println(c);
-    }
+
+      for (Comment submission : comments) {
+          String json = commentToJson(submission);
+          response.setContentType("application/json;");
+          response.getWriter().println(json);
+      }
     
   }
 
-}
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+      
+    String name = request.getParameter("name");
+    String comment = request.getParameter("comment");
+    Date curr_time = new Date();
+    addComment(name, comment, curr_time);
+
+    response.setContentType("text/html;");
+    
+
+    for (Comment submission : comments) {
+        response.getWriter().println(submission.getName() + " - " + submission.getComment() + " - " + submission.getTime().toString());
+      }
+
+    response.sendRedirect("/comment.html");
+  }
+
+    private String commentToJson(Comment comment) {
+        Gson gson = new Gson();
+        return gson.toJson(comment);
+  
+    }
+
+    private void addComment(String name, String comment, Date time) {
+        Comment c = new Comment(name, comment, time);
+        comments.add(c);
+    }
+ 
+
+  }
+
+  
