@@ -21,19 +21,22 @@ public final class Comment {
   private final String comment;
   private final String email;
   private final Date time;
+  private final int id;
 
-  public Comment(String name, String comment, Date time) {
+  public Comment(String name, String comment, Date time, int id) {
       this.name = name;
       this.comment = comment;
       this.time = time;
       this.email = null;
+      this.id = id;
   }
 
-  public Comment(String name, String comment, Date time, String email) {
+  public Comment(String name, String comment, Date time, String email, int id) {
         this.name = name;
         this.comment = comment;
         this.time = time;
         this.email = email;
+        this.id = id;
   }
 
   public Date getTime() {
@@ -50,5 +53,9 @@ public final class Comment {
 
   public String getEmail() {
     return email;
+  }
+
+  public int getId() {
+      return id;
   }
 }

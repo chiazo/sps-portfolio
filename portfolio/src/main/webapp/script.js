@@ -52,7 +52,7 @@ function showElement(el_name) {
             pic_title.classList.add("hide")
             pic_b.setAttribute("href", "#")
         }
-    } 
+    }
 }
 
 
@@ -91,10 +91,12 @@ window.addEventListener("scroll", e => {
     let returnLink = document.getElementById("return");
     let fromTop = window.scrollY;
 
-    if (fromTop > 300) {
-        returnLink.classList.remove("top")
-    } else {
-        if (returnLink) returnLink.classList.add("top")
+    if (returnLink) {
+        if (fromTop > 300) {
+            returnLink.classList.remove("top")
+        } else {
+            returnLink.classList.add("top")
+        }
     }
 
 });
@@ -105,16 +107,15 @@ let last_clicked;
 document.addEventListener("DOMContentLoaded", function (e) {
 
     getComments();
+
     // set bio & photos to initially hidden
     const bio = document.getElementById("bio")
     const pics = document.getElementById("photography")
-    // const comments = document.getElementById("comments")
     const pic_title = document.getElementById("gallery_title")
     if (bio) bio.classList.add("hide")
     if (pics) pics.classList.add("hide")
     if (pic_title) pic_title.classList.add("hide")
-    // if (comments) comments.classList.add("hide")
-    
+
     const buttons = document.getElementsByClassName("p-button");
     for (let b of buttons) {
         b.addEventListener("click", function () {
@@ -136,25 +137,23 @@ async function getComments() {
     let comment_div = document.createElement("div");
 
     const response = await fetch('/data');
-    console.log("response", response)
     const text = await response.text();
 
     var all_comments = text.split("\n");
     all_comments = all_comments.filter(x => x.length > 0);
-   
-    all_comments.forEach(function(val, idx, arr) {
-       arr[idx] = JSON.parse(val)
+
+    all_comments.forEach(function (val, idx, arr) {
+        arr[idx] = JSON.parse(val)
     })
 
     for (let submission of all_comments) {
         let curr_comment = document.createElement("div");
         curr_comment.classList += "comment";
-        console.log(submission)
-        curr_comment.innerText = submission.name + " - " + submission.comment + " | submitted on: " + submission.time;
+        curr_comment.innerText = submission.name + ": " + submission.comment + " | submitted on: " + submission.time;
         comment_div.appendChild(curr_comment);
+
     }
- 
-    
+
     document.getElementById('fetched-content').appendChild(comment_div);
- 
+
 }
