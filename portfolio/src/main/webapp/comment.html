@@ -12,37 +12,31 @@
 </head>
 
 <body>
-	<div class="nav">
+	<div class="nav-form">
 		<ul>
 			<li onclick="navigate()"><a>go back home!</a></li>
 		</ul>
 	</div>
-	<div id="content">
-		<div id="masthead">
+	<div id="content-form">
+		<div id="masthead" class="masthead-form">
 			<h1>~ Open to <strike>gentle</strike> feedback 25/8 ~</h1>
 			<h3 class="tagline">Sumbit your thoughts. pls.<h3>
 		</div>
 
 		<div id="comments">
-			<div id="comment-form">
+			<div class="row">
+                <div id="comment-form" class="column">
 				<form action="/data" method="POST">
 					<input type="text" name="name" placeholder="ur name pls" class="required" required/>
 					<input type="email" name="email" placeholder="gimme ur email quick"/>
 					<textarea name="comment" cols="30" rows="3" placeholder="leave ur message here!" class="required" required></textarea>
-					<input type="submit" onclick="getComments()" value="submit comment!"/>
+					<input type="submit" class="p-button" value="submit comment!"/>
                 </form>
-			</div>
-			<div id="fetched-content">
+			    </div>
+			<div id="fetched-content" class="column">
                 <div><h1>COMMENTS:</h1></div>
             </div>
-		</div>
-		<div class="links">
-			<ul>
-				<li><i><a href="https://www.linkedin.com/in/chiazo"><img src="/images/favicons/linkedin.png" /></a></i>
-				</li>
-				<li><i><a href="https://github.com/chiazo"><img src="/images/favicons/github.png" /></a></i></li>
-				<li><i><a href="https://chiazo.github.io"><img src="/images/favicons/website.png" /></a></i></li>
-			</ul>
+            </div>
 		</div>
 	</div>
 </body>

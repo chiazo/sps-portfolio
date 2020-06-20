@@ -52,7 +52,7 @@ function showElement(el_name) {
             pic_title.classList.add("hide")
             pic_b.setAttribute("href", "#")
         }
-    } 
+    }
 }
 
 
@@ -91,10 +91,10 @@ window.addEventListener("scroll", e => {
     let returnLink = document.getElementById("return");
     let fromTop = window.scrollY;
 
-    if (fromTop > 300) {
-        returnLink.classList.remove("top")
-    } else {
-        if (returnLink) {
+    if (returnLink) {
+        if (fromTop > 300) {
+            returnLink.classList.remove("top")
+        } else {
             returnLink.classList.add("top")
         }
     }
@@ -144,25 +144,44 @@ async function getComments() {
     let comment_div = document.createElement("div");
 
     const response = await fetch('/data');
-    console.log("response", response)
     const text = await response.text();
 
     var all_comments = text.split("\n");
     all_comments = all_comments.filter(x => x.length > 0);
-   
-    all_comments.forEach(function(val, idx, arr) {
-       arr[idx] = JSON.parse(val)
+
+    all_comments.forEach(function (val, idx, arr) {
+        arr[idx] = JSON.parse(val)
+        console.log(val)
     })
+
 
     for (let submission of all_comments) {
         let curr_comment = document.createElement("div");
         curr_comment.classList += "comment";
-        console.log(submission)
-        curr_comment.innerText = submission.name + " - " + submission.comment + " | submitted on: " + submission.time;
+
+        let name = document.createElement("span");
+        name.innerText = submission.name;
+        name.classList += " comment-name";
+
+        let comment = document.createElement("span");
+        comment.innerText = submission.comment;
+        comment.classList += " comment-comment";
+
+        let time = document.createElement("div");
+        time.appendChild(document.createTextNode("submitted on: "));
+        time.appendChild(document.createTextNode(submission.time));
+        time.classList += " comment-time";
+
+        curr_comment.appendChild(name);
+        curr_comment.appendChild(document.createTextNode(": "));
+        curr_comment.appendChild(comment);
+        curr_comment.appendChild(time);
         comment_div.appendChild(curr_comment);
+
     }
- 
-    
-    document.getElementById('fetched-content').appendChild(comment_div);
- 
+
+    if (document.getElementById('fetched-content')) {
+        document.getElementById('fetched-content').appendChild(comment_div);
+    }
+
 }
