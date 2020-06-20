@@ -21,9 +21,9 @@ public final class Comment {
   private final String comment;
   private final String email;
   private final Date time;
-  private final int id;
+  private final long id;
 
-  public Comment(String name, String comment, Date time, int id) {
+  public Comment(String name, String comment, Date time, long id) {
       this.name = name;
       this.comment = comment;
       this.time = time;
@@ -31,7 +31,7 @@ public final class Comment {
       this.id = id;
   }
 
-  public Comment(String name, String comment, Date time, String email, int id) {
+  public Comment(String name, String comment, Date time, String email, long id) {
         this.name = name;
         this.comment = comment;
         this.time = time;
@@ -55,7 +55,7 @@ public final class Comment {
     return email;
   }
 
-  public int getId() {
+  public long getId() {
       return id;
   }
 }

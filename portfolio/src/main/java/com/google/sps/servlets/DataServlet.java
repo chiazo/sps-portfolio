@@ -38,11 +38,11 @@ import com.google.appengine.api.datastore.KeyFactory;
 public class DataServlet extends HttpServlet {
 
     private List<Comment> comments;
-    private List<Integer> ids;
+    private List<Long> ids;
 
     public DataServlet() {
         comments = new ArrayList<Comment>();
-        ids = new ArrayList<Integer>();
+        ids = new ArrayList<Long>();
     }
 
   @Override
@@ -52,7 +52,7 @@ public class DataServlet extends HttpServlet {
     PreparedQuery pq = datastore.prepare(q);
 
         for (Entity submission : pq.asIterable()) {
-            addComment((String) submission.getProperty("name"), (String) submission.getProperty("comment"), (Date) submission.getProperty("time"));
+            addComment((String) submission.getProperty("name"), (String) submission.getProperty("comment"), (Date) submission.getProperty("time"), submission.getKey().getId());
         }
 
       for (Comment submission : comments) {
@@ -71,13 +71,14 @@ public class DataServlet extends HttpServlet {
     String name = request.getParameter("name");
     String comment = request.getParameter("comment");
     Date curr_time = new Date();
-    addComment(name, comment, curr_time);
 
     Entity commentEntity = new Entity("Comment");
     commentEntity.setProperty("name", name);
     commentEntity.setProperty("comment", comment);
     commentEntity.setProperty("time", curr_time);
-    commentEntity.setProperty("id", comments.size());
+    commentEntity.setProperty("id", commentEntity.getKey().getId());
+
+    addComment(name, comment, curr_time, commentEntity.getKey().getId());
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(commentEntity);
@@ -91,12 +92,12 @@ public class DataServlet extends HttpServlet {
   
     }
 
-    private void addComment(String name, String comment, Date time) {
-        Comment c = new Comment(name, comment, time, comments.size());
+    private void addComment(String name, String comment, Date time, long id) {
+        Comment c = new Comment(name, comment, time, id);
         comments.add(c);
     }
 
-    private void deleteComment(int id) {
+    private void deleteComment(long id) {
         Key commentEntityKey = KeyFactory.createKey("Comment", id);
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         datastore.delete(commentEntityKey);
