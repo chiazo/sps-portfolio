@@ -15,6 +15,8 @@
 package com.google.sps.data;
 import java.util.Date;
 
+// the Comment class creates a comment, encapsulating the email, name, time and comment
+// left by a User
 public final class Comment {
 
   private final String name;

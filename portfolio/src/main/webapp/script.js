@@ -107,15 +107,22 @@ let last_clicked;
 document.addEventListener("DOMContentLoaded", function (e) {
 
     getComments();
-
+    
     // set bio & photos to initially hidden
     const bio = document.getElementById("bio")
     const pics = document.getElementById("photography")
-    const pic_title = document.getElementById("gallery_title")
-    if (bio) bio.classList.add("hide")
-    if (pics) pics.classList.add("hide")
-    if (pic_title) pic_title.classList.add("hide")
 
+    const pic_title = document.getElementById("gallery_title")
+    if (bio) {
+        bio.classList.add("hide")
+    }
+    if (pics) {
+        pics.classList.add("hide")
+    }
+    if (pic_title) {
+        pic_title.classList.add("hide")
+    }
+    
     const buttons = document.getElementsByClassName("p-button");
     for (let b of buttons) {
         b.addEventListener("click", function () {
@@ -169,7 +176,6 @@ async function getComments() {
         curr_comment.appendChild(document.createTextNode(": "));
         curr_comment.appendChild(comment);
         curr_comment.appendChild(time);
-        // curr_comment.innerText = submission.name + ": " + submission.comment + " | submitted on: " + submission.time;
         comment_div.appendChild(curr_comment);
 
     }
