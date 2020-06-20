@@ -94,7 +94,9 @@ window.addEventListener("scroll", e => {
     if (fromTop > 300) {
         returnLink.classList.remove("top")
     } else {
-        if (returnLink) returnLink.classList.add("top")
+        if (returnLink) {
+            returnLink.classList.add("top")
+        }
     }
 
 });
@@ -105,15 +107,21 @@ let last_clicked;
 document.addEventListener("DOMContentLoaded", function (e) {
 
     getComments();
+    
     // set bio & photos to initially hidden
     const bio = document.getElementById("bio")
     const pics = document.getElementById("photography")
-    // const comments = document.getElementById("comments")
+
     const pic_title = document.getElementById("gallery_title")
-    if (bio) bio.classList.add("hide")
-    if (pics) pics.classList.add("hide")
-    if (pic_title) pic_title.classList.add("hide")
-    // if (comments) comments.classList.add("hide")
+    if (bio) {
+        bio.classList.add("hide")
+    }
+    if (pics) {
+        pics.classList.add("hide")
+    }
+    if (pic_title) {
+        pic_title.classList.add("hide")
+    }
     
     const buttons = document.getElementsByClassName("p-button");
     for (let b of buttons) {
