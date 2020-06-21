@@ -17,14 +17,23 @@ let last_hidden = "";
 // handle change of html page
 function navigate(page) {
     let url = window.location.href, next_page;
+
     if (page) {
         url = url.split("#")[0]
         url = url.split("?")[0]
-        next_page = url + page
+        if (getLoginStatus()) {
+            next_page = url + "/login"; 
+        } else {
+            next_page = url + page;
+            console.log(next_page)
+        }
+       
     } else {
         next_page = url.split("comment.html")[0]
     }
-    window.location.href = next_page
+
+    
+    window.location.href = next_page;
 }
 
 // hide/show bio or photos on link click
@@ -132,6 +141,18 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
 })
 
+// fetch login status 
+async function getLoginStatus() {
+    const response = await fetch('/login');
+    const text = await response.text();
+    console.log(text)
+    if (text.indexOf("login") !== -1) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 // fetch content + append it to #fetched-content div
 async function getComments() {
     let comment_div = document.createElement("div");
@@ -144,7 +165,6 @@ async function getComments() {
 
     all_comments.forEach(function (val, idx, arr) {
         arr[idx] = JSON.parse(val)
-        console.log(val)
     })
 
 

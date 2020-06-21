@@ -11,7 +11,7 @@
 	<script src="script.js"></script>
 </head>
 
-<body>
+<body onload="getLoginStatus()">
 	<div class="nav-form">
 		<ul>
 			<li onclick="navigate()"><a>go back home!</a></li>
@@ -30,7 +30,7 @@
 					<input type="text" name="name" placeholder="ur name pls" class="required" required/>
 					<input type="email" name="email" placeholder="gimme ur email quick"/>
 					<textarea name="comment" cols="30" rows="3" placeholder="leave ur message here!" class="required" required></textarea>
-					<input type="submit" class="p-button" value="submit comment!"/>
+					<input type="submit" class="s-button" value="submit comment!"/>
                 </form>
 			    </div>
 			<div id="fetched-content" class="column">
