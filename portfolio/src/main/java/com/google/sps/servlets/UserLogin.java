@@ -45,10 +45,11 @@ public class UserLogin extends HttpServlet {
       UserService us = UserServiceFactory.getUserService();
       
       if (us.isUserLoggedIn()) {
-          String email = us.getCurrentUser().getEmail();
-          String redirectUrl = "/comment.html";
+         
+          String redirectUrl = "/";
           String logout = us.createLogoutURL(redirectUrl);
           Entity userEntity = new Entity("User");
+           String email = us.getCurrentUser().getEmail();
           userEntity.setProperty("email", email);
 
           response.getWriter().println("<p>hi " + email + "<p>");

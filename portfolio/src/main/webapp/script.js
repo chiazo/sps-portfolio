@@ -189,7 +189,6 @@ async function getComments() {
         curr_comment.appendChild(document.createTextNode(": "));
         curr_comment.appendChild(comment);
         curr_comment.appendChild(time);
-        // curr_comment.innerText = submission.name + ": " + submission.comment + " | submitted on: " + submission.time;
         comment_div.appendChild(curr_comment);
 
     }
