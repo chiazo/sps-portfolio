@@ -44,17 +44,14 @@ public class UserLogin extends HttpServlet {
       response.setContentType("text/html");
       UserService us = UserServiceFactory.getUserService();
       
-      if (us.isUserLoggedIn()) {
-         
+      if (us.isUserLoggedIn()) {  
           String redirectUrl = "/";
           String logout = us.createLogoutURL(redirectUrl);
           response.getWriter().println(logout);
       } else {
-        // String email = us.getCurrentUser().getEmail();
           String redirectUrl = "/comment.html";
           String login = us.createLoginURL(redirectUrl);
-
-          response.getWriter().println("<p>Login <a href=\"" + login + "\">here</a>.</p>");
+          response.getWriter().println(login);
       }
   }
 
