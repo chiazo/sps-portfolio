@@ -153,6 +153,13 @@ async function getLoginStatus() {
     }
 }
 
+// fetch logout link 
+async function logout() {
+    const response = await fetch('/login');
+    const text = await response.text();
+    window.location.href = text;
+}
+
 // fetch content + append it to #fetched-content div
 async function getComments() {
     let comment_div = document.createElement("div");

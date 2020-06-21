@@ -48,13 +48,7 @@ public class UserLogin extends HttpServlet {
          
           String redirectUrl = "/";
           String logout = us.createLogoutURL(redirectUrl);
-          Entity userEntity = new Entity("User");
-           String email = us.getCurrentUser().getEmail();
-          userEntity.setProperty("email", email);
-
-          response.getWriter().println("<p>hi " + email + "<p>");
-          response.getWriter().println("<p>Logout <a href=\"" + logout + "\">here</a>.</p>");
-
+          response.getWriter().println(logout);
       } else {
         // String email = us.getCurrentUser().getEmail();
           String redirectUrl = "/comment.html";
