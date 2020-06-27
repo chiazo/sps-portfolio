@@ -19,20 +19,12 @@ function navigate(page) {
     let url = window.location.href, next_page;
 
     if (page) {
-        url = url.split("#")[0]
-        url = url.split("?")[0]
-        if (getLoginStatus()) {
-            next_page = url + "/login"; 
-        } else {
-            next_page = url + page;
-            console.log(next_page)
-        }
-       
+        url = url.split("#")[0];
+        url = url.split("?")[0];
+        next_page = url + page;
     } else {
         next_page = url.split("comment.html")[0]
     }
-
-    
     window.location.href = next_page;
 }
 
@@ -113,7 +105,7 @@ window.addEventListener("scroll", e => {
 let last_clicked;
 
 // add active class to selected button
-document.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener("DOMContentLoaded", function(e) {
 
     getComments();
 
@@ -127,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     const buttons = document.getElementsByClassName("p-button");
     for (let b of buttons) {
-        b.addEventListener("click", function () {
+        b.addEventListener("click", function() {
             if (b.className.indexOf("active") === -1) {
                 b.classList.add("active")
             } else {
@@ -141,16 +133,18 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
 })
 
-// fetch login status 
-async function getLoginStatus() {
+// fetch login link 
+async function login() {
     const response = await fetch('/login');
     const text = await response.text();
-    console.log(text)
-    if (text.indexOf("login") !== -1) {
-        return false;
-    } else {
-        return true;
-    }
+    window.location.href = text;
+}
+
+// fetch logout link 
+async function logout() {
+    const response = await fetch('/login');
+    const text = await response.text();
+    window.location.href = text;
 }
 
 // fetch content + append it to #fetched-content div
@@ -163,7 +157,7 @@ async function getComments() {
     var all_comments = text.split("\n");
     all_comments = all_comments.filter(x => x.length > 0);
 
-    all_comments.forEach(function (val, idx, arr) {
+    all_comments.forEach(function(val, idx, arr) {
         arr[idx] = JSON.parse(val)
     })
 
@@ -189,7 +183,6 @@ async function getComments() {
         curr_comment.appendChild(document.createTextNode(": "));
         curr_comment.appendChild(comment);
         curr_comment.appendChild(time);
-        // curr_comment.innerText = submission.name + ": " + submission.comment + " | submitted on: " + submission.time;
         comment_div.appendChild(curr_comment);
 
     }
