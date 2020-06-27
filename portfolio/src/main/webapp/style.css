@@ -185,7 +185,7 @@ select {
 /* buttons */
 
 .p-button,
-.comment {
+.comment, .s-button {
     border: none;
     line-height: 2;
     font-size: 1rem;
@@ -198,12 +198,12 @@ select {
     min-width: 50px;
 }
 
-.comment {
+.comment, .p-button {
     padding: 1rem;
     margin: 1rem;
 }
 
-.p-button {
+.p-button, .s-button {
     white-space: nowrap;
     padding: .5rem;
 }
@@ -231,7 +231,7 @@ select {
         margin-bottom: 1rem;
     }
     
-    .p-button {
+    .p-button, .s-button {
         min-width: 100px;
     }
 
@@ -240,7 +240,7 @@ select {
     }
 }
 
-.p-button:hover {
+.p-button:hover, .s-button:hover {
     box-shadow: none;
     background: var(--highlight-color);
 }

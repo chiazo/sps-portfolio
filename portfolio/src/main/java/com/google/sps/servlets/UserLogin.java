@@ -44,27 +44,20 @@ public class UserLogin extends HttpServlet {
       response.setContentType("text/html");
       UserService us = UserServiceFactory.getUserService();
       
-      if (us.isUserLoggedIn()) {
-          String email = us.getCurrentUser().getEmail();
+      if (us.isUserLoggedIn()) {  
           String redirectUrl = "/";
           String logout = us.createLogoutURL(redirectUrl);
-          Entity userEntity = new Entity("User");
-          userEntity.setProperty("email", email);
-
-          response.getWriter().println("<p>hi " + email + "<p>");
-          response.getWriter().println("<p>Logout here: <a href=\"" + logout + "\"></a>.</p>");
+          response.getWriter().println(logout);
       } else {
-        // String email = us.getCurrentUser().getEmail();
-          String redirectUrl = "/";
+          String redirectUrl = "/comment.html";
           String login = us.createLoginURL(redirectUrl);
-
-          response.getWriter().println("<p>Login <a href=\"" + login + "\">here</a>.</p>");
+          response.getWriter().println(login);
       }
   }
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-   
+   response.sendRedirect("/comment.html");
   }
  
 
