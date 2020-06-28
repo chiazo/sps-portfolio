@@ -56,19 +56,14 @@ public final class FindMeetingQuery {
     return availableTimes;
   }
 
-  boolean checkDuplicateAttendees(Collection<String> s1, Set<String> s2) {
-      Iterator<String> iterator = s1.iterator();
- 
-        while (iterator.hasNext()) {
-            String currPerson = iterator.next();
+  boolean checkDuplicateAttendees(Collection<String> requestAttendees, Set<String> eventAttendees) {
+      for (String currPerson : requestAttendees) {
+          if (eventAttendees.contains(currPerson)) {
+              return true;
+          }
+      }
 
-            if (s2.contains(currPerson)){
-
-                return true;
-            }
-        }
-
-        return false;
+      return false;
   }
 }
 
