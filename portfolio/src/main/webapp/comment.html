@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Submit A Comment!</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/png" href="/images/favicons/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script src="script.js"></script>
+</head>
+
+<body>
+	<div class="nav-form">
+		<ul>
+			<li onclick="navigate()"><a>go back home!</a></li>
+		</ul>
+	</div>
+	<div id="content-form">
+		<div id="masthead" class="masthead-form">
+			<h1>~ Open to <strike>gentle</strike> feedback 25/8 ~</h1>
+			<h3 class="tagline">Sumbit your thoughts. pls.<h3>
+		</div>
+
+		<div id="comments">
+			<div class="row">
+                <div id="comment-form" class="column">
+				<form action="/data" method="POST">
+					<input type="text" name="name" placeholder="ur name pls" class="required" required/>
+					<input type="email" name="email" placeholder="gimme ur email quick"/>
+					<textarea name="comment" cols="30" rows="3" placeholder="leave ur message here!" class="required" required></textarea>
+					<input type="submit" class="p-button" value="submit comment!"/>
+                </form>
+			    </div>
+			<div id="fetched-content" class="column">
+                <div><h1>COMMENTS:</h1></div>
+            </div>
+            </div>
+		</div>
+	</div>
+</body>
+
+</html>
