@@ -32,6 +32,8 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
@@ -73,6 +75,9 @@ public class DataServlet extends HttpServlet {
     Date curr_time = new Date();
 
     Entity commentEntity = new Entity("Comment");
+    UserService us = UserServiceFactory.getUserService();
+    String email = us.getCurrentUser().getEmail();
+    commentEntity.setProperty("email", email);
     commentEntity.setProperty("name", name);
     commentEntity.setProperty("comment", comment);
     commentEntity.setProperty("time", curr_time);

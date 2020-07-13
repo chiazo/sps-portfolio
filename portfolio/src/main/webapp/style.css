@@ -137,13 +137,6 @@ li {
     text-align: center;
 }
 
-@media (min-width: 850px) {
-    .tagline {
-        font-size: 3.2rem;
-        margin-bottom: 1rem;
-    }
-}
-
 #bio {
     background-color: var(--highlight-color);
     padding: .2rem 1rem;
@@ -192,10 +185,9 @@ select {
 /* buttons */
 
 .p-button,
-.comment {
+.comment, .s-button {
     border: none;
     line-height: 2;
-    margin: 1rem;
     font-size: 1rem;
     font-weight: 500;
     border-radius: .2rem;
@@ -206,11 +198,12 @@ select {
     min-width: 50px;
 }
 
-.comment {
+.comment, .p-button {
     padding: 1rem;
+    margin: 1rem;
 }
 
-.p-button {
+.p-button, .s-button {
     white-space: nowrap;
     padding: .5rem;
 }
@@ -233,7 +226,12 @@ select {
 }
 
 @media (min-width: 850px) {
-    .p-button {
+     .tagline {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .p-button, .s-button {
         min-width: 100px;
     }
 
@@ -242,7 +240,7 @@ select {
     }
 }
 
-.p-button:hover {
+.p-button:hover, .s-button:hover {
     box-shadow: none;
     background: var(--highlight-color);
 }
@@ -468,12 +466,6 @@ select {
 }
 
 @media screen and (min-width: 701px) {
-       input,
-    textarea,
-    select {
-        width: 80%;
-    }
-
     #fetched-content h1 {
         margin-top: 1rem;
     }
